@@ -1,0 +1,209 @@
+body {
+  margin: unset;
+  padding: unset;
+  overflow-x: auto;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+#parallax-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url("img/space-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+
+  overflow-x: hidden;
+  z-index: -1;
+}
+
+.page-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 12vh 1fr 1fr;
+  grid-template-columns: 100%;
+
+  overflow-y: auto;
+
+  z-index: -1;
+}
+
+header {
+  position: sticky;
+  top: 0;
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 65vw 1fr;
+  grid-template-rows: 100%;
+
+  z-index: 2;
+}
+.header-background {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  width: 100%;
+  height: 30vh;
+
+  margin-top: -18.5vh;
+
+  background-color: rgba(55, 43, 69, 0.362); 
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+
+  z-index: 0;
+}
+#menu {
+  position: relative;
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  margin-top: 1.5vh;
+}
+#menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5vw;
+
+  list-style-type: none;
+}
+#menu ul li {
+  display: inline-block;
+}
+#menu ul li a {
+  font-size: 22px;
+  display: block;
+  text-decoration: none;
+  color: #CCCCCC;
+  transition: transform 1.5s;
+}
+#menu ul li a:hover {
+  transform: scale(1.5); 
+}
+
+#content {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  z-index: 1;
+}
+
+.planet {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 2s;
+}
+.planet:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+.planet img {
+  display: block; /* Das Bild als Block-Element, damit margin:auto funktioniert */
+  margin: auto; /* Zentriert das Bild horizontal */
+  
+  width: 30vw; /*größe des bildes*/
+}
+.planet p {
+  position: absolute;
+
+  text-align: center;
+
+  color: #CCCCCC;
+}
+
+#planet-multimedia {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#planet-shop {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+#planet-tour {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+#planet-tour p {
+  color: #323232;
+}
+
+#kontakt {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+}
+#footer-background {
+  position: relative;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url("img/forest-background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  z-index: 0;
+}

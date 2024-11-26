@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="shop.css">
+        <title>Cult Of Starry Wisdom - Shop</title>
+    </head>
+
+    <body>
+        <div id="parallax-background"></div>
+        <div class="page-container">
+            <header>
+                <div class="header-background"></div>
+                <nav id="menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../multimedia/multimedia.html">Bilder/Videos</a></li>
+                        <li><a href="shop.html">Merch</a></li>
+                        <li><a href="../tour/tour.html">Tour</a></li>
+                        <li><a href="../index.html#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <nav id="shop-menu">
+                <ul>
+                    <li><a href="chart/chart.html">Einkaufswagen</a></li>
+                    <li>
+                        <div class="shop-menu-search">
+                            <input id="search-input" type="text" name="searchQueryInput" placeholder="Suchen..." value=""/>
+                            <img id="search-button" src="img/icons/search-icon.svg" onclick="search()">    
+                        </div>    
+                    </li>
+                    <li><a href="#textilien">Textilien</a></li>
+                    <li><a href="#alben">Alben</a></li>
+                    <li><a href="#sonstiges">Sonstiges</a></li>
+                </ul>
+            </nav>
+
+            <section id="content">
+                <div id="textilien" class="cathegory">
+                    <h2>Textilien</h2>
+                    
+                    <!--
+                    <div id="textil1" class="product">
+                        <h3 class="product-headline">Produkt X</h3>
+                        <img class="product-img">
+                        <div class="product-right-content">
+                            <p class="product-descr">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</p>
+                            <button class="add-to-chart-button">+</button>
+                        </div> 
+                    </div>
+                    -->
+
+                </div>
+
+                <div id="alben" class="cathegory">
+                    <h2>Alben</h2>
+                    <!--Produkte werden in js hinzugefügt-->
+                </div>
+
+                <div id="sonstiges" class="cathegory">
+                    <h2>Sonstiges</h2>
+                    <!--Produkte werden in js hinzugefügt-->
+                </div>
+            </section>
+        </div>
+
+        <!-- Modal für vergrößerte Ansicht der bilder -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="expandedImg">
+        </div>
+
+        <script src="shop.js"></script>
+    </body>
+</html>

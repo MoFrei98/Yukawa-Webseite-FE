@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="home.css">
+        <title>Cult Of Starry Wisdom</title>
+    </head>
+
+    <body>
+        <div id="parallax-background"></div>
+        <div class="page-container">
+            <header>
+                <div class="header-background"></div>
+                <nav id="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="multimedia/multimedia.html">Bilder/Videos</a></li>
+                        <li><a href="shop/shop.html">Merch</a></li>
+                        <li><a href="tour/tour.html">Tour</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </header>
+    
+            <section id="content">
+                <div class="planet" id="planet-multimedia" onclick="goToMultimedia()">
+                    <img src="img/planet-multimedia.png">
+                    <p>Bilder/Videos</p>
+                </div>
+
+                <div class="planet" id="planet-shop" onclick="goToShop()">
+                    <img src="img/planet-shop.png">
+                    <p>Merch</p>
+                </div>
+
+                <div class="planet" id="planet-tour" onclick="goToTour()">
+                    <img src="img/planet-tour.png">
+                    <p>Tour</p>
+                </div>
+
+                <!--add more planets-->
+            </section>
+    
+            <footer id="kontakt">
+                <!--Kontaktdaten-->
+                <div id="footer-background"></div>
+            </footer>
+        </div>
+
+        <script src="home.js"></script>
+    </body>
+</html>
