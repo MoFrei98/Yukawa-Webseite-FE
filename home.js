@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var yPos = -window.pageYOffset / 2;
     background.style.transform = "translate3d(0," + yPos + "px, 0)";
   });
+
+  getAllPinboardItems();
 });
 
 function goToMultimedia() {
@@ -18,4 +20,30 @@ function goToShop() {
 
 function goToTour() {
   location.href="tour/tour.html";
+}
+
+function getAllPinboardItems() {
+  var items = httpGet('/pinboard-items/get-all');
+  var pinboardContainer = document.getElementById('pinboard'); // Hole den Container
+
+  pinboardContainer.innerHTML = ""; // Lösche vorhandene Boxen
+
+  if (items && Array.isArray(items)) {
+    items.forEach(function(item) {
+      var box = document.createElement("div");
+      box.classList.add("pinboard-item"); // Füge eine Klasse für das Styling hinzu
+
+      var title = document.createElement("h1");
+      title.textContent = item.title;
+      box.appendChild(title);
+
+      var text = document.createElement("p");
+      text.textContent = item.text;
+      box.appendChild(text);
+
+      pinboardContainer.appendChild(box);
+    });
+  } else {
+    console.error("Die Antwort ist kein Array oder ein Fehler ist aufgetreten.");
+  }
 }
