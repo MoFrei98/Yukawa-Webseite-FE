@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     background.style.transform = "translate3d(0," + yPos + "px, 0)";
   });
 
-  getAllPinboardItems();
+  // getAllPinboardItems();
+  getAllPinboardItemsDummy();
 });
 
 function goToMultimedia() {
@@ -46,4 +47,38 @@ function getAllPinboardItems() {
   } else {
     console.error("Die Antwort ist kein Array oder ein Fehler ist aufgetreten.");
   }
+}
+
+function getAllPinboardItemsDummy() {
+  fetch('../dummy-data/pinboard_item_dummy.json').then(response => {
+        if (!response.ok) {
+          throw new Error('Fehler beim Laden der Datei');
+        }
+        return response.json();
+      }).then(items => {
+        var pinboardContainer = document.getElementById('pinboard');
+
+        pinboardContainer.innerHTML = "";
+
+        if (Array.isArray(items)) {
+          items.forEach(function(item) {
+            var box = document.createElement("div");
+            box.classList.add("pinboard-item");
+
+            var title = document.createElement("h1");
+            title.textContent = item.title;
+            box.appendChild(title);
+
+            var text = document.createElement("p");
+            text.textContent = item.text;
+            box.appendChild(text);
+
+            pinboardContainer.appendChild(box);
+          });
+        } else {
+          console.error("Die Antwort ist kein Array oder ein Fehler ist aufgetreten.");
+        }
+      }).catch(error => {
+        console.error("Fehler beim Laden der JSON-Datei:", error);
+      });
 }
