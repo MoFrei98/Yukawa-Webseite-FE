@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     background.style.transform = "translate3d(0," + yPos + "px, 0)";
   });
 
-  // getAllPinboardItems();
-  getAllPinboardItemsDummy();
+  getAllPinboardItems();
+  //getAllPinboardItemsDummy();
 });
 
 function goToMultimedia() {
