@@ -1,19 +1,19 @@
 const BACKEND_URL = 'http://localhost:8090';
 
-function httpGet(theUrl) {
-    return callBackend('GET', theUrl, null);
+function httpGet(url) {
+    return callBackend('GET', url, null);
 }
 
-function httpPut(theUrl, body) {
-    return callBackend('PUT', theUrl, body);
+function httpPut(url, body) {
+    return callBackend('PUT', url, body);
 }
 
-function httpPost(theUrl, body) {
-    return callBackend('POST', theUrl, body);
+function httpPost(url, body) {
+    return callBackend('POST', url, body);
 }
 
-function httpDelete(theUrl) {
-    return callBackend('DELETE', theUrl, null);
+function httpDelete(url) {
+    return callBackend('DELETE', url, null);
 }
 
 function callBackend(method, url, body) {
