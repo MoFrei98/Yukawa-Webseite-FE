@@ -4,8 +4,8 @@ function httpGet(theUrl) {
     return callBackend('GET', theUrl, null);
 }
 
-function httpUpdate(theUrl, body) {
-    return callBackend('UPDATE', theUrl, body);
+function httpPut(theUrl, body) {
+    return callBackend('PUT', theUrl, body);
 }
 
 function httpPost(theUrl, body) {
