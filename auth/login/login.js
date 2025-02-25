@@ -1,4 +1,4 @@
-document.getElementById('login-form').addEventListener('submit', function(event) {
+document.getElementById('auth-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     var username = document.getElementById('username').value;

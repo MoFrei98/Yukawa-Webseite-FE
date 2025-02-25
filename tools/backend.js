@@ -1,30 +1,40 @@
 const BACKEND_URL = 'http://localhost:8090';
 
-function httpGet(theUrl) {
-    return callBackend('GET', theUrl, null);
+async function httpGet(theUrl) {
+    return await callBackend('GET', theUrl);
 }
 
-function httpUpdate(theUrl, body) {
-    return callBackend('UPDATE', theUrl, body);
+async function httpUpdate(theUrl, body) {
+    return await callBackend('PUT', theUrl, body);
 }
 
-function httpPost(theUrl, body) {
-    return callBackend('POST', theUrl, body);
+async function httpPost(theUrl, body) {
+    return await callBackend('POST', theUrl, body);
 }
 
-function httpDelete(theUrl) {
-    return callBackend('DELETE', theUrl, null);
+async function httpDelete(theUrl) {
+    return await callBackend('DELETE', theUrl);
 }
 
-function callBackend(method, url, body) {
-    var xmlHttp = new XMLHttpRequest();
+async function callBackend(method, url, body = null) {
     const fullURL = BACKEND_URL + url;
 
-    xmlHttp.open(method, fullURL, false);
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');
-    xmlHttp.send(body);
+    try {
+        const response = await fetch(fullURL, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: body ? JSON.stringify(body) : null
+        });
 
-    var jsonResponse = JSON.parse(xmlHttp.responseText);
-    console.log('response for url ' + fullURL + ': ',  jsonResponse);
-    return jsonResponse;
+        if (!response.ok) {
+            throw new Error(`Fehler ${response.status}: ${await response.text()}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(`Fehler bei ${method} ${fullURL}:`, error);
+        return null;
+    }
 }
