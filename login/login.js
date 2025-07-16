@@ -5,11 +5,14 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     const message = document.getElementById('login-message');
 
     try {
-        const data = httpPost('/users/login', JSON.stringify({ username, password }));
-        if (data.token) {
-            message.style.color = 'green';
-            message.textContent = 'Login erfolgreich! Token: ' + data.token;
-            // Token speichern oder Weiterleitung hier
+        const data = callBackend('POST', '/users/login', { username, password });
+        if (data && data.token) {
+            // Token für 1 Stunde speichern
+            const expiry = new Date().getTime() + 60 * 60 * 1000;
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('authTokenExpiry', expiry);
+            // Weiterleitung auf index.html
+            window.location.href = '../index.html';
         } else {
             message.style.color = '#d8000c';
             message.textContent = 'Login fehlgeschlagen!';
@@ -37,7 +40,7 @@ showRegisterBtn.addEventListener('click', function() {
     }
 });
 
-// Registrierung absenden
+// register
 registerForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const username = document.getElementById('reg-username').value;
@@ -47,12 +50,13 @@ registerForm.addEventListener('submit', function(e) {
     const message = document.getElementById('register-message');
 
     try {
-        const data = httpPost('/users/register', JSON.stringify({
+        const data = {
             username,
             password,
             firstName,
             lastName
-        }));
+        };
+        callBackend('POST', '/users/register', data);
         message.style.color = 'green';
         message.textContent = 'Registrierung erfolgreich!';
     } catch (error) {
