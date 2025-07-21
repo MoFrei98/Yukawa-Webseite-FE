@@ -25,14 +25,14 @@ function goToTour() {
 
 function getAllPinboardItems() {
   var items = httpGet('/pinboard-items/get-all');
-  var pinboardContainer = document.getElementById('pinboard'); // Hole den Container
+  var pinboardContainer = document.getElementById('pinboard-items');
 
   pinboardContainer.innerHTML = ""; // Lösche vorhandene Boxen
 
   if (items && Array.isArray(items)) {
     items.forEach(function(item) {
       var box = document.createElement("div");
-      box.classList.add("pinboard-item"); // Füge eine Klasse für das Styling hinzu
+      box.classList.add("pinboard-item");
 
       var title = document.createElement("h1");
       title.textContent = item.title;
@@ -49,36 +49,25 @@ function getAllPinboardItems() {
   }
 }
 
-function getAllPinboardItemsDummy() {
-  fetch('../dummy-data/pinboard_item_dummy.json').then(response => {
-        if (!response.ok) {
-          throw new Error('Fehler beim Laden der Datei');
-        }
-        return response.json();
-      }).then(items => {
-        var pinboardContainer = document.getElementById('pinboard');
+// Create pinboard item
+function createPinboardItem(title, text) {
+  var data = { title: title, text: text };
+  var result = httpPost('/pinboard-items/create', data);
+  if (result) {
+    getAllPinboardItems(); // Nach erfolgreichem Anlegen neu laden
+  } else {
+    alert('Fehler beim Erstellen des Eintrags!');
+  }
+}
 
-        pinboardContainer.innerHTML = "";
-
-        if (Array.isArray(items)) {
-          items.forEach(function(item) {
-            var box = document.createElement("div");
-            box.classList.add("pinboard-item");
-
-            var title = document.createElement("h1");
-            title.textContent = item.title;
-            box.appendChild(title);
-
-            var text = document.createElement("p");
-            text.textContent = item.text;
-            box.appendChild(text);
-
-            pinboardContainer.appendChild(box);
-          });
-        } else {
-          console.error("Die Antwort ist kein Array oder ein Fehler ist aufgetreten.");
-        }
-      }).catch(error => {
-        console.error("Fehler beim Laden der JSON-Datei:", error);
-      });
+// Event Listener für das Formular
+var pinboardForm = document.getElementById('pinboard-form');
+if (pinboardForm) {
+  pinboardForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var title = document.getElementById('pin-title').value;
+    var text = document.getElementById('pin-text').value;
+    createPinboardItem(title, text);
+    pinboardForm.reset();
+  });
 }

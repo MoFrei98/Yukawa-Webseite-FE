@@ -142,23 +142,74 @@ header {
   max-width: 40rem;
   max-height: 10rem;
   padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  border: 1.5px solid #e2c275;
+  border-radius: 10px 20px 10px 20px;
+  box-shadow: 2px 4px 18px 2px rgba(0,0,0,0.13), 0 1.5px 0 #e2c275 inset;
+  background: linear-gradient(135deg, #fffbe6 90%, #ffe066 100%);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  color: #6d4c00;
+  margin: 10px;
+  transform: rotate(-2deg);
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
 }
-
+.pinboard-item:before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 18px;
+  background: repeating-linear-gradient(135deg, #ffe066, #ffe066 6px, #fffbe6 6px, #fffbe6 12px);
+  border-radius: 10px 20px 0 0;
+  opacity: 0.7;
+}
+.pinboard-item:hover {
+  box-shadow: 4px 8px 24px 4px rgba(0,0,0,0.18);
+  transform: rotate(1deg) scale(1.03);
+}
 .pinboard-item h1 {
   font-size: 20px;
-  color: #333;
+  color: #b48a00;
   margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #fffbe6;
 }
-
 .pinboard-item p {
-  font-size: 14px;
-  color: #555;
+  font-size: 15px;
+  color: #6d4c00;
+  margin: 0;
+  word-break: break-word;
 }
-
+#pinboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fffbe6;
+  border: 1.5px solid #e2c275;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  box-shadow: 1px 2px 8px 0 rgba(0,0,0,0.08);
+}
+#pin-title, #pin-text {
+  border: 1px solid #e2c275;
+  border-radius: 6px;
+  padding: 6px;
+  font-family: inherit;
+  background: #fffde4;
+}
+#pinboard-form button[type="submit"] {
+  background: #ffe066;
+  color: #6d4c00;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 0;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 0 #e2c275 inset;
+  transition: background 0.2s;
+}
+#pinboard-form button[type="submit"]:hover {
+  background: #ffe599;
+}
 
 #kontakt {
   grid-row-start: 3;

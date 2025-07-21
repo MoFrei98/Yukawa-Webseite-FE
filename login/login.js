@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     const message = document.getElementById('login-message');
 
     try {
-        const data = callBackend('POST', '/users/login', { username, password });
+        const data = httpPost('/users/login', { username, password }, false);
         if (data && data.token) {
             // Token für 1 Stunde speichern
             const expiry = new Date().getTime() + 60 * 60 * 1000;
@@ -56,7 +56,7 @@ registerForm.addEventListener('submit', function(e) {
             firstName,
             lastName
         };
-        callBackend('POST', '/users/register', data);
+        httpPost( '/users/register', data, false);
         message.style.color = 'green';
         message.textContent = 'Registrierung erfolgreich!';
     } catch (error) {

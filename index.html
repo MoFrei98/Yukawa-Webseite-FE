@@ -30,7 +30,12 @@
                 </div>
 
                 <div id="pinboard">
-
+                    <form id="pinboard-form">
+                        <input type="text" id="pin-title" placeholder="Titel" required>
+                        <textarea id="pin-text" placeholder="Text" required></textarea>
+                        <button type="submit">Hinzufügen</button>
+                    </form>
+                    <div id="pinboard-items"></div>
                 </div>
             </section>
     
@@ -42,5 +47,6 @@
 
         <script src="home.js"></script>
         <script src="tools/backend.js"></script>
+        <script src="tools/auth.js"></script>
     </body>
 </html>
