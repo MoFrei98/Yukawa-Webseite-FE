@@ -11,7 +11,7 @@
 })();
 
 function hasRole(userUuid, roleName) {
-    const user = httpGet('/get/' + userUuid, null);
-    const role = httpGet('/role/' + roleName, null);
-    // ... hier die Logik, um zu prüfen, ob der Benutzer die Rolle hat
+    // Anfrage an das neue Backend-Endpoint
+    const result = httpGet(`/users/has-role/${userUuid}/${roleName}`, null, true);
+    return result === true;
 }
