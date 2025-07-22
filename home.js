@@ -9,6 +9,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   getAllPinboardItems();
   //getAllPinboardItemsDummy();
+
+  // Admin-Check und Add-Button/Formular-Steuerung
+  const showAddBtn = document.getElementById('show-add-form');
+  const pinboardForm = document.getElementById('pinboard-form');
+
+  if (typeof hasRole === 'function') {
+    if (hasRole(null, 'ADMIN')) {
+      showAddBtn.style.display = 'block';
+    }
+  }
+
+  showAddBtn.addEventListener('click', function() {
+    if (pinboardForm.style.display === 'none') {
+      pinboardForm.style.display = 'block';
+      showAddBtn.style.display = 'none';
+    }
+  });
 });
 
 function goToMultimedia() {

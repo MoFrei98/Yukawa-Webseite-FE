@@ -11,6 +11,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
             const expiry = new Date().getTime() + 60 * 60 * 1000;
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('authTokenExpiry', expiry);
+            localStorage.setItem('username', username); // Username speichern
             // Weiterleitung auf index.html
             window.location.href = '../index.html';
         } else {
