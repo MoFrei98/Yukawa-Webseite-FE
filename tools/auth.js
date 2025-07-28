@@ -6,7 +6,7 @@
         // Token abgelaufen oder fehlt
         localStorage.removeItem('authToken');
         localStorage.removeItem('authTokenExpiry');
-        window.location.href = 'login.html'; // oder dein Pfad zur Login-Seite
+        window.location.href = 'login/login.html'; // oder dein Pfad zur Login-Seite
     }
 })();
 
@@ -25,9 +25,9 @@ function getUsernameFromToken() {
     return username;
 }
 
-function hasRole(userNameOrNull, roleName) {
+function hasRole(roleName) {
     // Username aus Token extrahieren, falls nicht übergeben
-    const username = userNameOrNull || getUsernameFromToken();
+    const username = getUsernameFromToken();
     if (!username) return false;
     const result = httpGet(`/users/has-role/${username}/${roleName}`, null, true);
     return result === true;

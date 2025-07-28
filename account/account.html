@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+        <link rel="stylesheet" href="account.css">
+    </head>
+    <body>
+        <button id="account-login-btn" onclick="window.location.href='../login/login.html'">Logout</button>
+        <div class="account-container">
+            <h1>Account-Informationen</h1>
+            <div id="account-info">
+                <!-- Accountdaten werden hier angezeigt -->
+            </div>
+            <div id="admin-panel" style="display:none;">
+                <h2>Benutzerverwaltung</h2>
+                <div id="user-list">
+                    <!-- Nutzerliste für Admins -->
+                </div>
+            </div>
+        </div>
+        <script src="../tools/backend.js"></script>
+        <script src="../tools/auth.js"></script>
+        <script src="account.js"></script>
+    </body>
+</html>

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const pinboardForm = document.getElementById('pinboard-form');
 
   if (typeof hasRole === 'function') {
-    if (hasRole(null, 'ADMIN')) {
+    if (hasRole('ADMIN')) {
       showAddBtn.style.display = 'block';
     }
   }

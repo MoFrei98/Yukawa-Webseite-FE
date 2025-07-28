@@ -24,7 +24,7 @@ function callBackend(method, url, body, auth) {
     xmlHttp.setRequestHeader('Content-Type', 'application/json');
     if (auth) {
         const token = localStorage.getItem('authToken');
-        console.log('Using token: ', token);
+        //console.log('Using token: ', token);
         if (token) {
             xmlHttp.setRequestHeader('Authorization', 'Bearer ' + token);
         }

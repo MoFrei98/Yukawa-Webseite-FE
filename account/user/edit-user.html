@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nutzer bearbeiten</title>
+        <link rel="stylesheet" href="edit-user.css">
+    </head>
+    <body>
+        <div class="edit-user-container">
+            <h2>Nutzer bearbeiten</h2>
+            <form id="edit-user-form">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email">
+
+                <label for="firstName">Vorname</label>
+                <input type="text" id="firstName" name="firstName">
+
+                <label for="lastName">Nachname</label>
+                <input type="text" id="lastName" name="lastName">
+
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password">
+
+                <div id="role-select-container" style="display:none">
+                    <label for="role">Rolle</label>
+                    <select id="role" name="role">
+                        <!-- Optionen werden dynamisch per JavaScript eingefügt -->
+                    </select>
+                </div>
+
+                <button type="submit">Speichern</button>
+                <div class="error" id="error-msg"></div>
+            </form>
+        </div>
+        <script src="../../tools/backend.js"></script>
+        <script src="../../tools/auth.js"></script>
+        <script src="edit-user.js"></script>
+    </body>
+</html>
