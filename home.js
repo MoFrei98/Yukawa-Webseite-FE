@@ -47,23 +47,57 @@ function getAllPinboardItems() {
   pinboardContainer.innerHTML = ""; // Lösche vorhandene Boxen
 
   if (items && Array.isArray(items)) {
-    items.forEach(function(item) {
+    items.forEach(function(item, idx) {
       var box = document.createElement("div");
-      box.classList.add("pinboard-item");
-
-      var title = document.createElement("h1");
-      title.textContent = item.title;
-      box.appendChild(title);
-
-      var text = document.createElement("p");
-      text.textContent = item.text;
-      box.appendChild(text);
-
+      box.classList.add("pinboard-slideshow-item");
+      if(idx === 0) box.classList.add('active');
+      box.innerHTML = `<h1>${item.title}</h1><p>${item.text}</p>`;
       pinboardContainer.appendChild(box);
     });
+    startPinboardSlideshow();
   } else {
     console.error("Die Antwort ist kein Array oder ein Fehler ist aufgetreten.");
   }
+}
+
+function startPinboardSlideshow() {
+  var items = document.querySelectorAll('.pinboard-slideshow-item');
+  if(items.length < 2) return;
+  let current = 0;
+  let intervalId;
+
+  function showItem(next) {
+    let prev = current;
+    items[prev].classList.remove('active');
+    items[prev].classList.add('prev');
+    current = (next + items.length) % items.length;
+    items[current].classList.add('active');
+    items[current].classList.remove('prev');
+    setTimeout(() => items[prev].classList.remove('prev'), 700);
+  }
+
+  function nextItem() {
+    showItem(current + 1);
+  }
+
+  function prevItem() {
+    showItem(current - 1);
+  }
+
+  intervalId = setInterval(nextItem, 5000);
+
+  // Scroll-Event für das Pinboard
+  const pinboard = document.getElementById('pinboard');
+  pinboard.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    clearInterval(intervalId); // Pause Autoplay beim Scrollen
+    if (e.deltaY > 0) {
+      nextItem();
+    } else if (e.deltaY < 0) {
+      prevItem();
+    }
+    intervalId = setInterval(nextItem, 5000); // Autoplay wieder starten
+  }, { passive: false });
 }
 
 // Create pinboard item

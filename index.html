@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" href="global.css">
         <title>Yukawa</title>
     </head>
-
     <body>
         <div id="parallax-background"></div>
         <div class="page-container">
@@ -14,39 +14,29 @@
                 <nav id="menu">
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="multimedia/multimedia.html">Bilder/Videos</a></li>
+                        <li><a href="multimedia/multimedia.html">Media</a></li>
                         <li><a href="shop/shop.html">Merch</a></li>
                         <li><a href="tour/tour.html">Tour</a></li>
-                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="#kontakt">Contact</a></li>
+                        <li><a href="account/account.html">Account</a></li>
                     </ul>
                 </nav>
-                <button id="account-btn" class="login-btn" onclick="window.location.href='account/account.html'">Account</button>
             </header>
-    
             <section id="content">
-
                 <div class="intro">
-                    <h1>Willkommen</h1>
-                    <p>Willkommen auf der offiziellen Website der Band Yukawa. Hier findest du alle Informationen zu unserer Band, unseren Konzerten und Merchandise.</p>
+                    <h1>Welcome</h1>
+                    <p>Welcome to the official website of the band Yukawa. Here you will find all information about our band, concerts, and merchandise.</p>
                 </div>
-
+                <button id="show-add-form" onclick="window.location.href='pinboard/add-pinboard-item.html'">Add</button>
                 <div id="pinboard">
-                    <button id="show-add-form" style="display:none; margin-bottom:10px;">Add</button>
-                    <form id="pinboard-form" style="display:none;">
-                        <input type="text" id="pin-title" placeholder="Titel" required>
-                        <textarea id="pin-text" placeholder="Text" required></textarea>
-                        <button type="submit">Hinzufügen</button>
-                    </form>
                     <div id="pinboard-items"></div>
                 </div>
             </section>
-    
             <footer id="kontakt">
-                <!--Kontaktdaten-->
+                <!--Contact information-->
                 <div id="footer-background"></div>
             </footer>
         </div>
-
         <script src="home.js"></script>
         <script src="tools/backend.js"></script>
         <script src="tools/auth.js"></script>

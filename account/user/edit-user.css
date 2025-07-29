@@ -1,45 +1,50 @@
 .edit-user-container {
-    max-width: 500px;
-    margin: 40px auto;
-    background: #f9f9a9;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 32px 24px;
+    max-width: 30rem;
+    margin: 4rem auto;
+    background: var(--secondary-bg);
+    border-radius: 1.375rem;
+    box-shadow: var(--shadow-main);
+    padding: 2.25rem 2rem 2rem 2rem;
+    color: var(--text-main);
+    border: 0.125rem solid var(--border-main);
 }
 .edit-user-container h2 {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+    color: var(--text-accent);
+    letter-spacing: 0.125rem;
 }
 .edit-user-container label {
     display: block;
-    margin-top: 16px;
+    margin-top: 1.125rem;
     font-weight: bold;
 }
-.edit-user-container input, .edit-user-container select {
+.edit-user-container input,
+.edit-user-container select,
+.edit-user-container textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background: #fffde7;
+    margin-top: 0.375rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.125rem solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--text-main);
+    font-size: 1rem;
 }
 .edit-user-container button {
-    margin-top: 24px;
+    margin-top: 1.75rem;
     width: 100%;
-    padding: 10px;
-    background: #ffd600;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-.edit-user-container button:hover {
-    background: #ffe082;
+    padding: 0.75rem 0;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
 }
 .edit-user-container .error {
     color: #d32f2f;
-    margin-top: 12px;
+    margin-top: 0.75rem;
+}
+@media (max-width: 600px) {
+    .edit-user-container {
+        max-width: 98vw;
+        padding: 1.25rem 0.5rem 1rem 0.5rem;
+    }
 }

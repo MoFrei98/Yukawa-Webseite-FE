@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
         <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="../global.css">
     </head>
     <body>
         <div class="login-container">
             <h2>Login</h2>
             <form id="login-form">
-                <label for="username">Benutzername</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
-                <label for="password">Passwort</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-                <button type="submit">Anmelden</button>
+                <button type="submit">Login</button>
                 <div id="login-message"></div>
             </form>
-            <button id="show-register">Registrieren</button>
+            <button id="show-register">Register</button>
             <form id="register-form" style="display:none; margin-top:20px;">
-                <label for="reg-username">Benutzername</label>
+                <label for="reg-username">Username</label>
                 <input type="text" id="reg-username" name="reg-username" required>
-                <label for="reg-password">Passwort</label>
+                <label for="reg-password">Password</label>
                 <input type="password" id="reg-password" name="reg-password" required>
-                <label for="reg-firstname">Vorname</label>
+                <label for="reg-firstname">Firstname</label>
                 <input type="text" id="reg-firstname" name="reg-firstname" required>
-                <label for="reg-lastname">Nachname</label>
+                <label for="reg-lastname">Lastname</label>
                 <input type="text" id="reg-lastname" name="reg-lastname" required>
-                <button type="submit">Registrieren</button>
+                <button type="submit">Register</button>
                 <div id="register-message"></div>
             </form>
         </div>

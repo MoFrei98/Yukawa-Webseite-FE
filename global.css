@@ -1,0 +1,98 @@
+/* Globale Styles für Buttons, Tabellen, Inputs, etc. */
+:root {
+    --primary-bg: #18181b;
+    --secondary-bg: #23232a;
+    --accent: #8b0000; /* Blutrot als Akzent */
+    --text-main: #e0e0e0;
+    --text-accent: #8b0000;
+    --border-main: #222b44; /* Dunkler Blauton */
+    --shadow-main: 0 4px 32px rgba(0,0,0,0.7);
+    --btn-bg: linear-gradient(90deg, #23232a 60%, #18181b 100%);
+    --btn-hover: linear-gradient(90deg, #222b44 60%, #23232a 100%);
+    --table-bg: #23232a;
+    --table-header: #18181b;
+    --table-row: #23232a;
+    --table-row-alt: #222b44;
+    --table-border: #222b44;
+    --input-bg: #23232a;
+    --input-border: #222b44;
+}
+
+body {
+    font-family: 'Rock Salt', 'Montserrat', 'Arial', sans-serif;
+}
+
+button, .btn {
+    background: var(--btn-bg);
+    color: var(--text-accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 24px;
+    box-shadow: var(--shadow-main);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+}
+button:hover, .btn:hover {
+    background: var(--btn-hover);
+    color: var(--accent);
+}
+
+input, select, textarea {
+    background: var(--input-bg);
+    color: var(--text-main);
+    border: 2px solid var(--input-border);
+    border-radius: 6px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+/* Tabellen-Design */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--table-bg);
+    box-shadow: var(--shadow-main);
+    border-radius: 12px;
+    overflow: hidden;
+}
+th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--table-border);
+    text-align: left;
+    color: var(--text-main);
+}
+th {
+    background: var(--table-header);
+    color: var(--text-accent);
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+tr {
+    background: var(--table-row);
+}
+tr:nth-child(even) {
+    background: var(--table-row-alt);
+}
+
+h1, h2, h3 {
+    font-family: 'Rock Salt', 'Montserrat', 'Arial', sans-serif;
+    letter-spacing: 2px;
+    color: var(--text-accent);
+    text-shadow: 2px 2px 8px #000, 0 0 2px var(--accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background: var(--secondary-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+}

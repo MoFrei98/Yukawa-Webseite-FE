@@ -1,37 +1,36 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Nutzer bearbeiten</title>
+        <title>Edit user</title>
+        <link rel="stylesheet" href="../../global.css">
         <link rel="stylesheet" href="edit-user.css">
     </head>
     <body>
         <div class="edit-user-container">
-            <h2>Nutzer bearbeiten</h2>
+            <h2>Edit user</h2>
             <form id="edit-user-form">
-                <label for="username">Benutzername</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
 
-                <label for="email">E-Mail</label>
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email">
 
-                <label for="firstName">Vorname</label>
+                <label for="firstName">First name</label>
                 <input type="text" id="firstName" name="firstName">
 
-                <label for="lastName">Nachname</label>
+                <label for="lastName">Last name</label>
                 <input type="text" id="lastName" name="lastName">
 
-                <label for="password">Passwort</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password">
 
                 <div id="role-select-container" style="display:none">
-                    <label for="role">Rolle</label>
-                    <select id="role" name="role">
-                        <!-- Optionen werden dynamisch per JavaScript eingefügt -->
-                    </select>
+                    <label for="role">Role</label>
+                    <select id="role" name="role"></select>
                 </div>
 
-                <button type="submit">Speichern</button>
+                <button type="submit">Save</button>
                 <div class="error" id="error-msg"></div>
             </form>
         </div>
