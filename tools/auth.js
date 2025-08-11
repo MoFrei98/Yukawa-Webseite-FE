@@ -25,10 +25,10 @@ function getUsernameFromToken() {
     return username;
 }
 
-function hasRole(roleName) {
+async function hasRole(roleName) {
     // Username aus Token extrahieren, falls nicht übergeben
     const username = getUsernameFromToken();
     if (!username) return false;
-    const result = httpGet(`/users/has-role/${username}/${roleName}`, null, true);
+    const result = await httpGet(`/users/has-role/${username}/${roleName}`, null, true);
     return result === true;
 }

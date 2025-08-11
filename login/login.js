@@ -1,11 +1,11 @@
-document.getElementById('login-form').addEventListener('submit', function(e) {
+document.getElementById('login-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const message = document.getElementById('login-message');
 
     try {
-        const data = httpPost('/users/login', { username, password }, false);
+        const data = await httpPost('/users/login', { username, password }, false);
         if (data && data.token) {
             // Token für 1 Stunde speichern
             const expiry = new Date().getTime() + 60 * 60 * 1000;
@@ -42,7 +42,7 @@ showRegisterBtn.addEventListener('click', function() {
 });
 
 // register
-registerForm.addEventListener('submit', function(e) {
+registerForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     const username = document.getElementById('reg-username').value;
     const password = document.getElementById('reg-password').value;
@@ -57,9 +57,13 @@ registerForm.addEventListener('submit', function(e) {
             firstName,
             lastName
         };
-        httpPost( '/users/register', data, false);
-        message.style.color = 'green';
-        message.textContent = 'Registrierung erfolgreich!';
+        const response = await httpPost( '/users/register', data, false);
+        if (response) {
+            message.style.color = 'green';
+            message.textContent = 'Registrierung erfolgreich!';
+        } else {
+            throw new Error('Registration returned no data.');
+        }
     } catch (error) {
         message.style.color = '#d8000c';
         message.textContent = 'Fehler bei der Registrierung: ' + error.message;

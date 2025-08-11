@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   var background = document.getElementById("parallax-background");
 
   window.addEventListener("scroll", function () {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const pinboardForm = document.getElementById('pinboard-form');
 
   if (typeof hasRole === 'function') {
-    if (hasRole('ADMIN')) {
+    if (await hasRole('ADMIN')) {
       showAddBtn.style.display = 'block';
     }
   }
@@ -40,8 +40,8 @@ function goToTour() {
   location.href="tour/tour.html";
 }
 
-function getAllPinboardItems() {
-  var items = httpGet('/pinboard-items/get-all');
+async function getAllPinboardItems() {
+  var items = await httpGet('/pinboard-items/get-all');
   var pinboardContainer = document.getElementById('pinboard-items');
 
   pinboardContainer.innerHTML = ""; // Lösche vorhandene Boxen
@@ -101,9 +101,9 @@ function startPinboardSlideshow() {
 }
 
 // Create pinboard item
-function createPinboardItem(title, text) {
+async function createPinboardItem(title, text) {
   var data = { title: title, text: text };
-  var result = httpPost('/pinboard-items/create', data);
+  var result = await httpPost('/pinboard-items/create', data);
   if (result) {
     getAllPinboardItems(); // Nach erfolgreichem Anlegen neu laden
   } else {
@@ -114,11 +114,11 @@ function createPinboardItem(title, text) {
 // Event Listener für das Formular
 var pinboardForm = document.getElementById('pinboard-form');
 if (pinboardForm) {
-  pinboardForm.addEventListener('submit', function(e) {
+  pinboardForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     var title = document.getElementById('pin-title').value;
     var text = document.getElementById('pin-text').value;
-    createPinboardItem(title, text);
+    await createPinboardItem(title, text);
     pinboardForm.reset();
   });
 }

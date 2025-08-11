@@ -16,8 +16,23 @@
             <label for="text">Text</label>
             <textarea id="text" name="text" required></textarea>
 
-            <label for="attachment">Attachment (optional)</label>
-            <input type="file" id="attachment" name="attachment" accept="image/*,video/*,audio/*,application/pdf">
+            <button type="button" id="add-attachment-btn" class="btn">Add Attachment</button>
+
+            <div id="attachment-form" style="display: none; margin-top: 1rem; padding: 1rem; border: 1px solid var(--border-main); border-radius: 8px;">
+                <h3>Attachment</h3>
+                <label for="attachment">File</label>
+                <input type="file" id="attachment" name="attachment">
+
+                <label for="file-type">File Type</label>
+                <select id="file-type" name="file-type">
+                    <!-- Options will be populated by JS -->
+                </select>
+
+                <label for="path-type">Path Type</label>
+                <select id="path-type" name="path-type">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
 
             <button type="submit">Add</button>
             <div class="error" id="error-msg"></div>
